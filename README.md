@@ -2,7 +2,7 @@
   <a href="http://github.com/erikwii/GitGotchi">
     <img src="https://avatars.githubusercontent.com/u/21095856?v=4" alt="screenshot" width="200">
   </a>
-  <h3 align="center">📌✨GitGotchi</h3>
+  <h3 align="center">📌GitGotchi✨</h3>
 </p>
 
 <p align="center">
@@ -12,7 +12,7 @@
    <img src="https://img.shields.io/github/forks/erikwii/GitGotchi"/> -->
 </p>
 <p align="center">
-   A virtual pet that growth by your Github contributions.
+   🥚A virtual pet that growth by your Github contributions.🦖
    <br/>
    Pin your gist pet at your Github profile!
    <br/>
