@@ -7,9 +7,43 @@ export const userInfoQuery = `
   }
 `;
 
+export const userStatusQuery = (username: string) => `
+query {
+  user(login: "${username}") {
+    name
+    login
+    contributionsCollection {
+      totalCommitContributions
+      restrictedContributionsCount
+    }
+    repositoriesContributedTo(first: 1, contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]) {
+      totalCount
+    }
+    pullRequests(first: 1) {
+      totalCount
+    }
+    issues(first: 1) {
+      totalCount
+    }
+    followers {
+      totalCount
+    }
+    repositories(first: 100, ownerAffiliations: OWNER, orderBy: {direction: DESC, field: STARGAZERS}) {
+      totalCount
+      nodes {
+        stargazers {
+          totalCount
+        }
+      }
+    }
+  }
+}
+`;
+
 export const createContributedRepoQuery = (username: string) => `
   query {
     user(login: "${username}") {
+      createdAt
       repositoriesContributedTo(last: 100, includeUserRepositories: true) {
         totalCount
         nodes {

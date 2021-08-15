@@ -6,9 +6,11 @@ import githubQuery from './githubQuery';
 import generateBarChart from './generateBarChart';
 import { 
   userInfoQuery,
+  userStatusQuery,
   createContributedRepoQuery, 
   createCommittedDateQuery 
 } from './queries';
+
 /**
  * get environment variable
  */
@@ -26,6 +28,14 @@ interface IRepo {
   const userResponse = await githubQuery(userInfoQuery)
     .catch(error => console.error(`Unable to get username and id\n${error}`));
   const { login: username, id } = userResponse?.data?.viewer;
+
+  /**
+   * Second, get user stat
+   */
+  const userStatus = userStatusQuery(username)
+  const statResponse = await githubQuery(userStatus)
+    .catch(error => console.error(`Unable to get user status\n${error}`));
+  console.log(JSON.stringify(statResponse,null,2));
 
   /**
    * Second, get contributed repos
